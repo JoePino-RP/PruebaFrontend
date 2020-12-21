@@ -74,13 +74,13 @@ export default {
                 rol: document.getElementById("frol").value
             };
             console.log(datosJson)
-            axios.post("http://localhost:8000/user/createUser/",datosJson)
+            axios.put("http://localhost:8000//user/updateUser/",datosJson)
                 .then(response=> {
                     alert("Creado con exito");
-                    })
+                })
                 .catch(error => {
                     alert("ERROR Servidor");
-                    }); 
+                }); 
         },   
 
         Volver: function(){
@@ -105,7 +105,8 @@ export default {
         align-content: center;
         align-items: center;
         margin-left: auto;
-  margin-right: auto;
+        margin-right: auto;
+        border-color: #ffffff;
         
     }
     

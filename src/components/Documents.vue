@@ -10,11 +10,8 @@
         <h1>¡Bienvenido <span>{{username}}</span>!</h1>
 
         <div class="Barra">
-            <form >
-                <label class="coment" for="fdoc">Nombre</label>
-            <input type="text" placeholder="buscar" id="fdoc" name="fdoc" class="Campos"><br>
+            <input type="text" placeholder="buscar" id="palabraclave" name ="palabraclave" >
             <button class="invert" type="button" id="search" v-on:click="SearchDoc" >Buscar</button>
-            </form>
         </div>
         
 
@@ -27,9 +24,9 @@
                     <th>ARCHIVO</th>
                 </tr>
                 <tr>
-                    <td>nombre 1</td>
-                    <td>2020-12-12</td>
-                    <td>2021-12-21</td>
+                    <td><span>{{file_name}}</span></td>
+                    <td><span>{{data_upload}}</span></td>
+                    <td>{{data_expired}}</td>
                     <td>img</td>
                 </tr>
                 
@@ -96,7 +93,7 @@ import axios from "axios";
                 
         },
         SearchDoc: function(){
-            var keyword = document.getElementById("fdoc").value;
+            var keyword = document.getElementById("palabraclave").value;
 
             var jsonfile = {
                 keyword_s: keyword,
@@ -106,9 +103,9 @@ import axios from "axios";
 
             
             /*var password = document.getElementById("fpassword").value;*/
-            axios.get("http://localhost:8000/user/Buscar",jsonfile)
+            axios.put("http://localhost:8000/user/Buscar",jsonfile)
                 .then(response=>{
-                    alert("Picadura de la cobra gay")
+                    console.log(response.data);
                 })
                 .catch(error => {
                     alert("ERROR Servidor");
