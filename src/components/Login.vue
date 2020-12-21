@@ -44,10 +44,24 @@ export default {
         };
     },
     methods: {
+        
         SignUser: function(){
-            this.$router.push({name: "user"})
+            var username = document.getElementById("fuser").value;
+            /*var password = document.getElementById("fpassword").value;*/
+            axios.get("http://localhost:8000/user/leerUsuario/"+username)
+                .then(response=> {
+                    this.$router.push({name:"user", params:{username:username,
+                                                            apellido:response.data.apellido,
+                                                            correo:response.data.correo,
+                                                            nombre:response.data.nombre,
+                                                            celular:response.data.celular,
+                                                            rol:response.data.rol}})
+                })
+                .catch(error => {
+                    alert("ERROR Servidor");
+                });
                 
-        },
+        }
 
     }
 }

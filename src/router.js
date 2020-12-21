@@ -4,6 +4,7 @@ import Login from './components/Login'
 import Index from './components/Index'
 import Create from './components/Create'
 import User from './components/User'
+import Documents from './components/Documents'
 
 const router = new vueRouter({
     mode:'history',
@@ -38,7 +39,13 @@ const router = new vueRouter({
             path:'/user/:username',
             name: "user",
             component: User
-            },
+        },
+
+        {
+            path:'/documents',
+            name: "documents",
+            component: Documents
+        },
 
     ]
 })

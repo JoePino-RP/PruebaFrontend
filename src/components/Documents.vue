@@ -3,35 +3,33 @@
         
             <div>
                  <button class="invert3" type="button" id="prof" v-on:click="Prueba">Mi perfil</button>
-                 <button class="invert3" type="button" id="Docs" v-on:click="Docs">Documentos</button>   
+                 <button class="invert3" type="button" id="Docs" v-on:click="Docs">Documentos</button>  
+                  
             </div>
         
         <h1>¡Bienvenido <span>{{username}}</span>!</h1>
+
+        <div class="Barra">
+            <input type="text" placeholder="buscar" required>
+            <button class="invert" type="button" id="search" v-on:click="Search">Buscar</button>
+        </div>
         
 
         <div style="text-align:center">
-            <table style="width:60%" class="Data" align="center">
+            <table style="width:60%" class="Data2" align="center">
                 <tr>
                     <th> NOMBRE</th>
-                    <td><span>{{nombre}}</span></td>
+                    <th>FECHA DE SUBIDA</th>                    
+                    <th>FECHA DE CADUCIDAD</th>
+                    <th>ARCHIVO</th>
                 </tr>
                 <tr>
-                    <th>APELLIDO</th>
-                    <td><span>{{apellido}}</span></td>
-                </tr>
-                <tr>
-                    <th>CORREO ELECTRÓNICO</th>
-                    <td><span>{{correo}}</span></td>
+                    <td>nombre 1</td>
+                    <td>2020-12-12</td>
+                    <td>2021-12-21</td>
+                    <td>img</td>
                 </tr>
                 
-                <tr>
-                    <th>ROL</th>
-                    <td><span>{{rol}}</span></td>
-                </tr>
-                <tr>
-                    <th>Celular</th>
-                    <td><span>{{celular}}</span></td>
-                </tr>
             </table>
             <button class="invert" type="button" id="Volver2" v-on:click="Volver">Volver</button>
         </div>
@@ -41,10 +39,8 @@
 </template>
 
 <script>
-    import axios from'axios';
-import { use } from 'vue/types/umd';
     export default {
-        name: "User",
+        name: "Documents",
         data: function(){
             return{
                 username: "",
@@ -55,27 +51,16 @@ import { use } from 'vue/types/umd';
                 nombre:""
             }
         },
-        created:function(){
-            this.username = this.$route.params.username
-            this.apellido = this.$route.params.apellido
-            this.correo = this.$route.params.correo
-            this.nombre = this.$route.params.nombre
-            this.rol = this.$route.params.rol
-            this.celular = this.$route.params.celular
-        },
         methods: {
         Prueba: function(){
-            if (this.$route.name != "user"){
-                //let username = localStorage.getItem("current_username")
-                this.$route.push({name:"user", params:{username:username}})
-            }
+            this.$router.push({name: "user"})
                 
         },
         Volver: function(){
             this.$router.push({name: "index"})
                 
         },
-        Docs(){
+        Docsfunction(){
             this.$router.push({name: "documents"})
                 
         }
@@ -88,12 +73,33 @@ import { use } from 'vue/types/umd';
 </script>
 
 
-<style type="text/css">
+<style >
+    .Barra {
+       width: 1000 px;   
+       height: 60px;
+       padding: 0 20px;
+
+    }
+    .Barra input{
+       font-family: 'Times New Roman';
+        border-radius: 20px;
+        border: 1px solid #082e55;
+        background-color: #ffffff;
+        color: #000000;
+        font-size: 1.5rem;
+        margin-left: 4rem;
+        font-weight: bold;
+        padding: 10px auto;
+        letter-spacing: 0.1px;
+        cursor: pointer;
+        transition: transform .1s ease-in;  
+
+    }
     table,th,td{
         border: 1px solid black;
         align-content: center;
         align-items: center;
-        border-collapse: collapse;
+        border-collapse: collapse;  
     }
     th,td{
         padding: 10px;
@@ -102,8 +108,8 @@ import { use } from 'vue/types/umd';
     th{
         text-align: left;
     }
-    .Data{
-        background-color: #98C2EC;
+    .Data2{
+        background-color: #ffffff;
         align-content: center;
         align-items: center;
         

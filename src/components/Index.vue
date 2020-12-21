@@ -9,7 +9,7 @@
           </div>
           <div class="col">
             <div class="rightside">   
-               <div class="Title2"><h1>Bienvenido</h1></div>         
+               <div class="Title2"><h1>Únete a la revolución de los archivos digitales y la gestión documental</h1></div>         
               <div class="contenedor">
                 <div >
                   <button class="invert2" type="button" id="signIn" v-on:click="SignUser">Login</button>
@@ -128,6 +128,6 @@ export default {
         cursor: pointer;
         transition: transform .1s ease-in;
         margin-bottom: 5%;
-        margin-top: 5%;
+        margin-top: 10%;
     }
 </style>

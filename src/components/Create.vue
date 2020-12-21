@@ -74,14 +74,14 @@ export default {
                 rol: document.getElementById("frol").value
             };
             console.log(datosJson)
-            axios.post("https://expfiles-s3.herokuapp.com/user/createUser/",datosJson)
+            axios.post("http://localhost:8000/user/createUser/",datosJson)
                 .then(response=> {
                     alert("Creado con exito");
                     })
                 .catch(error => {
                     alert("ERROR Servidor");
                     }); 
-        },
+        },   
 
         Volver: function(){
             this.$router.push({name:"index"})
