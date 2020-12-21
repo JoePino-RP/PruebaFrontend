@@ -37,7 +37,7 @@ export default {
     
   },
   beforeCreate: function(){
-      this.$router.push({name: "inicio"})
+    this.$router.push({name:"/"})
     } 
   
 }
