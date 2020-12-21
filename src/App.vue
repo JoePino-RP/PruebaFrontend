@@ -23,24 +23,17 @@
 </template>
 
 <script>
-
-
 export default {
   name: 'App',
   components: {},
-
-  data: function(){
-      
-    },
-
-  //Crea un llamado al router para iniciar en login apenas inicie
-  beforeCreate: function(){
-      this.$router.push({name: "login"})
-    } 
+  data: function (){
+    
+  }
+  
 }
 </script>
 
-<style>
+<style >
 body{
   margin: 0 0 0 0;
 }
@@ -77,3 +70,4 @@ body{
     }
 
 </style>
+
