@@ -11,6 +11,9 @@ const router = new vueRouter({
             name: "root",
             component: App
         }
+        
+
+
     ]
 })
 

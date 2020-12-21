@@ -13,7 +13,8 @@
 
     <!--Cuerpo-->
     <div class="main-component">
-      <router-view> </router-view>
+      <Index></Index>
+      <router-view></router-view>
     </div>
 
     <!--Footer-->
@@ -29,10 +30,10 @@
 </template>
 
 <script>
-
+import Index from './components/Index'
 export default {
   name: 'App',
-  components: {},
+  components: {Index},
   data: function (){
     
   },
