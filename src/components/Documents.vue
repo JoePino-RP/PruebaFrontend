@@ -23,12 +23,9 @@
                     <th>FECHA DE CADUCIDAD</th>
                     <th>ARCHIVO</th>
                 </tr>
-                <tr>
-                    <td><span>{{file_name}}</span></td>
-                    <td><span>{{data_upload}}</span></td>
-                    <td>{{data_expired}}</td>
-                    <td>img</td>
-                </tr>
+                <tbody id="Mis_Docs">
+                    
+                </tbody>
                 
             </table>
             <button class="invert" type="button" id="Volver2" v-on:click="Volver">Volver</button>
@@ -39,6 +36,7 @@
 </template>
 
 <script>
+
 import axios from "axios";
     export default {
         name: "Documents",
@@ -49,11 +47,7 @@ import axios from "axios";
                 correo: "",
                 rol:"",
                 celular:"",
-                nombre:"",
-                file_name:"",
-                data_upload:"",
-                data_expired:"",
-                file_uploaded:""
+                nombre:""
             }
         },
         created:function(){
@@ -63,10 +57,7 @@ import axios from "axios";
             this.nombre = this.$route.params.nombre
             this.rol = this.$route.params.rol
             this.celular = this.$route.params.celular
-            this.file_name = this.$route.params.file_name
-            this.data_upload = this.$route.params.data_upload
-            this.data_expired = this.$route.params.data_expired
-            this.file_uploaded = this.$route.params.file_uploaded
+            
         },
         methods: {
         Prueba: function(){
@@ -106,18 +97,15 @@ import axios from "axios";
             axios.put("http://localhost:8000/user/Buscar",jsonfile)
                 .then(response=>{
                     console.log(response.data);
+                    var Archivos = response.data
                 })
                 .catch(error => {
                     alert("ERROR Servidor");
-                }); 
-                
+                });                 
         }
-
-    }       
-        
-        
-        
+    }    
     }
+    
 </script>
 
 
