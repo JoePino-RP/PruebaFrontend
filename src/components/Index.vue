@@ -65,6 +65,7 @@ export default {
   .leftside,.rightside{
     height: 100%;
     width: 100%;
+    
   }
 
   @media screen and (min-width: 768px) {
@@ -90,6 +91,9 @@ export default {
     position: center;
     object-position: center;
     position: center;
+        
+        /* IMPORTANTE */
+        text-align: center;
     
     
   }
@@ -98,6 +102,7 @@ export default {
     width: 100%;
   position: center;
   justify-content: center;
+  
     
   }
   .contenedor2{

@@ -2,6 +2,7 @@ import vueRouter from 'vue-router'
 import App from'./App'
 import Login from './components/Login'
 import Index from './components/Index'
+import Create from './components/Create'
 
 const router = new vueRouter({
     mode:'history',
@@ -25,6 +26,12 @@ const router = new vueRouter({
             name: "index", 
             component: Index
         },
+
+        {
+            path:'/user/createUser',
+            name: "create",
+            component: Create
+        }
 
     ]
 })
