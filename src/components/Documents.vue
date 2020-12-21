@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import axios from "axios";
     export default {
         name: "Documents",
         data: function(){
@@ -51,9 +52,28 @@
                 nombre:""
             }
         },
+        created:function(){
+            this.username = this.$route.params.username
+            this.apellido = this.$route.params.apellido
+            this.correo = this.$route.params.correo
+            this.nombre = this.$route.params.nombre
+            this.rol = this.$route.params.rol
+            this.celular = this.$route.params.celular
+        },
         methods: {
         Prueba: function(){
-            this.$router.push({name: "user"})
+            axios.get("http://localhost:8000/user/leerUsuario/"+this.username)
+                .then(response=> {
+                    this.$router.push({name:"user", params:{username:this.username,
+                                                            apellido:response.data.apellido,
+                                                            correo:response.data.correo,
+                                                            nombre:response.data.nombre,
+                                                            celular:response.data.celular,
+                                                            rol:response.data.rol}})
+                })
+                .catch(error => {
+                    alert("ERROR Servidor");
+                });
                 
         },
         Volver: function(){

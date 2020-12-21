@@ -64,16 +64,33 @@
         },
         methods: {
         Prueba: function(){
-            this.$router.push({name: "user"})
+            axios.get("http://localhost:8000/user/leerUsuario/"+username)
+                .then(response=> {
+                    this.$router.push({name:"user", params:{username:username,
+                                                            apellido:response.data.apellido,
+                                                            correo:response.data.correo,
+                                                            nombre:response.data.nombre,
+                                                            celular:response.data.celular,
+                                                            rol:response.data.rol}})
+                })
+                .catch(error => {
+                    alert("ERROR Servidor");
+                });
                 
         },
         Volver: function(){
             this.$router.push({name: "index"})
                 
         },
-        Docs(){
-            this.$router.push({name: "documents"})
-                
+        Docs(){            
+            console.log(this.username)
+            this.$router.push({name:"documents", params:{username:this.username,
+                                                            apellido:this.apellido,
+                                                            correo:this.correo,
+                                                            nombre:this.nombre,
+                                                            celular:this.celular,
+                                                            rol:this.rol}})
+
         }
 
     }       
