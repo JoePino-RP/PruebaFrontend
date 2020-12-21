@@ -2,12 +2,12 @@
   <div >
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <link rel="stylesheet">
-        <div class="row no-gutters">
-          <div class="col-md-6 no-gutters">
+        <div class="row">
+          <div class="col">
             <div class="leftside">          
             </div>
           </div>
-          <div class="col-md-6 no-gutters">
+          <div class="col">
             <div class="rightside">   
                <div class="Title2"><h1>Bienvenido</h1></div>         
               <div class="contenedor">
@@ -15,7 +15,8 @@
                   <button class="invert2" type="button" id="signIn" v-on:click="SignUser">Login</button>
                 </div>
                 <div >
-                  <button class="invert2" type="button" id="signIn" v-on:click="RegisterUser">Registrar</button></div>
+                  <button class="invert2" type="button" id="signIn" v-on:click="RegisterUser">Registrar</button>
+                </div>
               </div>
             </div>
           </div>
@@ -58,16 +59,17 @@ export default {
         font-size: 2rem;
         font-weight: bold;
         display: block;
-        margin-top: 40px;
+        position: center;
   }
+
   .leftside,.rightside{
-    height: 80vh;
+    height: 100%;
     width: 100%;
   }
 
   @media screen and (min-width: 768px) {
     .leftside,.rightside{
-      height: 100vh;
+      height: 69vh;
     }
   }
   .leftside{
@@ -76,7 +78,7 @@ export default {
     align-items: center;
     background-image: url("logo.png");
     background-repeat: no-repeat;
-    background-size: 500px 500px;
+    background-size: 200px 200px;
     background-position: center;
   }
 
@@ -87,6 +89,8 @@ export default {
     justify-content: center;
     position: center;
     object-position: center;
+    position: center;
+    
     
   }
   .contenedor{
