@@ -10,8 +10,11 @@
         <h1>¡Bienvenido <span>{{username}}</span>!</h1>
 
         <div class="Barra">
-            <input type="text" placeholder="buscar" id="Palabraclave">
-            <button class="invert" type="button" id="search" v-on:click="SearchDoc">Buscar</button>
+            <form >
+                <label class="coment" for="fdoc">Nombre</label>
+            <input type="text" placeholder="buscar" id="fdoc" name="fdoc" class="Campos"><br>
+            <button class="invert" type="button" id="search" v-on:click="SearchDoc" >Buscar</button>
+            </form>
         </div>
         
 
@@ -39,7 +42,7 @@
 </template>
 
 <script>
-    import axios from "axios";
+import axios from "axios";
     export default {
         name: "Documents",
         data: function(){
@@ -93,24 +96,23 @@
                 
         },
         SearchDoc: function(){
-            var keyword = document.getElementById("Palabraclave").value;
+            var keyword = document.getElementById("fdoc").value;
 
             var jsonfile = {
                 keyword_s: keyword,
                 user_auth: this.rol
             };
-            console.log(jsonfile),
+            console.log(jsonfile)
 
             
             /*var password = document.getElementById("fpassword").value;*/
-            axios.get("http://127.0.0.1:8000/user/Buscar/",jsonfile)
-                .then(response=> {
-                    console.log("Cualquier cosa" )
-                                                            /*rol:response.data.rol*/
+            axios.get("http://localhost:8000/user/Buscar",jsonfile)
+                .then(response=>{
+                    alert("Picadura de la cobra gay")
                 })
                 .catch(error => {
                     alert("ERROR Servidor");
-                });
+                }); 
                 
         }
 

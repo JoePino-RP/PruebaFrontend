@@ -5,6 +5,7 @@ import Index from './components/Index'
 import Create from './components/Create'
 import User from './components/User'
 import Documents from './components/Documents'
+import Change from './components/Change'
 
 const router = new vueRouter({
     mode:'history',
@@ -42,10 +43,17 @@ const router = new vueRouter({
         },
 
         {
-            path:'/documents',
+            path:'/change',
+            name: "change",
+            component: Change
+        },
+
+
+        {
+            path:'/user/Buscar',
             name: "documents",
             component: Documents
-        },
+        }
 
     ]
 })

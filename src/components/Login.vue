@@ -11,13 +11,14 @@
                     </tr>
                     <tr>           
                         <th><label class="coment" for="fpass">Contraseña</label></th>
-                        <th><input type="text" placeholder="Contraseña" id="fpass" name="fpass" class="Campos"><br></th>
+                        <th><input type="password" placeholder="Contraseña" id="fpass" name="fpass" class="Campos"><br></th>
                     </tr>
                     
                    
                     
                 </table>
                 <button class="invert" type="button" id="signIn" v-on:click="SignUser">Ingresar</button>
+                <p><button id="cambio" v-on:click="cambiar">Forgot password</button></p>
             </form>
             </div>         
         </div>    
@@ -44,18 +45,30 @@ export default {
         };
     },
     methods: {
+
+        cambiar: function(){
+            this.$router.push({name: "change"})
+                
+        },
         
         SignUser: function(){
             var username = document.getElementById("fuser").value;
-            /*var password = document.getElementById("fpassword").value;*/
+            var password = document.getElementById("fpass").value;
+            
             axios.get("http://localhost:8000/user/leerUsuario/"+username)
                 .then(response=> {
-                    this.$router.push({name:"user", params:{username:username,
+                    if(response.data.password == password ){
+                        this.$router.push({name:"user", params:{username:username,
                                                             apellido:response.data.apellido,
                                                             correo:response.data.correo,
                                                             nombre:response.data.nombre,
                                                             celular:response.data.celular,
                                                             rol:response.data.rol}})
+                    }
+                    else{
+                        alert("Datos Incorrectos");
+                    }
+                    
                 })
                 .catch(error => {
                     alert("ERROR Servidor");
