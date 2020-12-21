@@ -42,7 +42,6 @@
 
 <script>
     import axios from'axios';
-import { use } from 'vue/types/umd';
     export default {
         name: "User",
         data: function(){
@@ -65,10 +64,7 @@ import { use } from 'vue/types/umd';
         },
         methods: {
         Prueba: function(){
-            if (this.$route.name != "user"){
-                //let username = localStorage.getItem("current_username")
-                this.$route.push({name:"user", params:{username:username}})
-            }
+            this.$router.push({name: "user"})
                 
         },
         Volver: function(){
