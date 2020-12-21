@@ -12,7 +12,7 @@
                <div class="Title2"><h1>Bienvenido</h1></div>         
               <div class="contenedor">
                 <div >
-                  <button class="invert2" type="button" id="signIn" v-on:click="SignUser">Consultar</button>
+                  <button class="invert2" type="button" id="signIn" v-on:click="SignUser">Login</button>
                 </div>
                 <div >
                   <button class="invert2" type="button" id="signIn" v-on:click="RegisterUser">Registrar</button></div>
@@ -26,7 +26,31 @@
 
 <script>
 
+export default {
+    name: "inicio",
+    data: function(){
+        return{
+            username: "",
+            password: "",
+            apellido: "",
+            correo: "",
+            rol:"",
+            celular:"",
+            nombre:""
+        };
+    },
+    methods: {
+        SignUser: function(){
+            this.$router.push({name: "login"})    
+        },
+
+        RegisterUser: function(){
+            this.$router.push({name:"create"})
+        }
+    }
+}
 </script>
+
 <style >
   .Title2{
         font-family: 'Times New Roman';

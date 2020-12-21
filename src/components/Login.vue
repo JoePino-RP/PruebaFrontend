@@ -18,11 +18,9 @@
             </form>
             </div>         
         </div>    
-    <div class="footer">  
-        <h2>      
-             ©2020 por ExpFiles.
-        </h2>
-    </div>
+    
+
+
 </div>
 
 </template>
@@ -86,20 +84,7 @@ export default {
   margin-right: auto;
         
     }
-    .footer{
-        margin: 0;
-        padding: 0  ;
-        width: 100%;
-        height: 15vh;
-        min-height: 10px; 
-        background-color: #082e55; 
-        color: #E5E7E9;
-        text-align: center;
-        position: static;
-        bottom: 0px;
-        right: 0px;
-        font-family: 'Times New Roman';
-    }
+    
     .coment{
         font-family: 'Times New Roman';
         color: #000000;

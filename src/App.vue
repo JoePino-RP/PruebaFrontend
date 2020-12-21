@@ -13,24 +13,32 @@
 
     <!--Cuerpo-->
     <div class="main-component">
-      <Inicial></Inicial>
       <router-view> </router-view>
     </div>
 
     <!--Footer-->
+
+    <div class="footer">  
+             <h2>      
+              ©2020 por ExpFiles.
+            </h2>
+    </div>
     
 
   </div>
 </template>
 
 <script>
-import Inicial from './components/Inicial.vue'
+
 export default {
   name: 'App',
-  components: {Inicial},
+  components: {},
   data: function (){
     
-  }
+  },
+  beforeCreate: function(){
+      this.$router.push({name: "inicio"})
+    } 
   
 }
 </script>
@@ -62,13 +70,17 @@ body{
 
 .footer{
         margin: 0;
-        padding: 0.1  ;
+        padding: 0  ;
         width: 100%;
-        height: 1vh;
-        min-height: 20px; 
+        height: 15vh;
+        min-height: 10px; 
         background-color: #082e55; 
         color: #E5E7E9;
         text-align: center;
+        position: static;
+        bottom: 0px;
+        right: 0px;
+        font-family: 'Times New Roman';
     }
 
 </style>

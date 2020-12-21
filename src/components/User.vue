@@ -35,11 +35,7 @@
             <button class="invert" type="button" id="Volver2" v-on:click="Volver">Volver</button>
         </div>
         
-        <div class="footer">  
-             <h2>      
-              ©2020 por ExpFiles.
-            </h2>
-        </div>
+        
     </div>
 </template>
 
