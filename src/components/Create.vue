@@ -84,7 +84,7 @@ export default {
         },
 
         Volver: function(){
-            this.$router.push({name:"login"})
+            this.$router.push({name:"index"})
         }
     }
 }

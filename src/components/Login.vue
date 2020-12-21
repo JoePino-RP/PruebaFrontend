@@ -2,7 +2,7 @@
     <div>
         <div id="LoginFull" class="Login">        
         <div id="Login">
-            <div class="Title"><h1>Consulta de Usuarios</h1></div>
+            <div class="Title"><h1>INICIO DE SESIÓN</h1></div>
             <form >     
                 <table class="adf">
                     <tr >           
@@ -17,9 +17,7 @@
                    
                     
                 </table>
-                <button class="invert" type="button" id="signIn" v-on:click="SignUser">Consultar</button>
-                <button class="invert" type="button" id="signIn" v-on:click="RegisterUser">Registrar</button>
-                <p><a href="./components/User.vue">Forgot password</a></p>
+                <button class="invert" type="button" id="signIn" v-on:click="SignUser">Ingresar</button>
             </form>
             </div>         
         </div>    
@@ -47,13 +45,10 @@ export default {
     },
     methods: {
         SignUser: function(){
-            
+            this.$router.push({name: "user"})
                 
         },
 
-        RegisterUser: function(){
-            this.$router.push({name:"create"})
-        }
     }
 }
 </script>
