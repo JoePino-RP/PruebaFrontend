@@ -3,15 +3,15 @@
         
             <div>
                  <button class="invert3" type="button" id="prof" v-on:click="Prueba">Mi perfil</button>
-                 <button class="invert3" type="button" id="Docs" v-on:click="Docs">Documentos</button>  
+                 <button class="invert3" type="button" id="Docs2" v-on:click="Docs2">Documentos</button>  
                   
             </div>
         
         <h1>¡Bienvenido <span>{{username}}</span>!</h1>
 
         <div class="Barra">
-            <input type="text" placeholder="buscar" required>
-            <button class="invert" type="button" id="search" v-on:click="Search">Buscar</button>
+            <input type="text" placeholder="buscar" id="Palabraclave">
+            <button class="invert" type="button" id="search" v-on:click="SearchDoc">Buscar</button>
         </div>
         
 
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import axios from "axios";
+    import axios from "axios";
     export default {
         name: "Documents",
         data: function(){
@@ -49,7 +49,11 @@ import axios from "axios";
                 correo: "",
                 rol:"",
                 celular:"",
-                nombre:""
+                nombre:"",
+                file_name:"",
+                data_upload:"",
+                data_expired:"",
+                file_uploaded:""
             }
         },
         created:function(){
@@ -59,6 +63,10 @@ import axios from "axios";
             this.nombre = this.$route.params.nombre
             this.rol = this.$route.params.rol
             this.celular = this.$route.params.celular
+            this.file_name = this.$route.params.file_name
+            this.data_upload = this.$route.params.data_upload
+            this.data_expired = this.$route.params.data_expired
+            this.file_uploaded = this.$route.params.file_uploaded
         },
         methods: {
         Prueba: function(){
@@ -80,8 +88,29 @@ import axios from "axios";
             this.$router.push({name: "index"})
                 
         },
-        Docsfunction(){
+        Docs2:function(){
             this.$router.push({name: "documents"})
+                
+        },
+        SearchDoc: function(){
+            var keyword = document.getElementById("Palabraclave").value;
+
+            var jsonfile = {
+                keyword_s: keyword,
+                user_auth: this.rol
+            };
+            console.log(jsonfile),
+
+            
+            /*var password = document.getElementById("fpassword").value;*/
+            axios.get("http://127.0.0.1:8000/user/Buscar/",jsonfile)
+                .then(response=> {
+                    console.log("Cualquier cosa" )
+                                                            /*rol:response.data.rol*/
+                })
+                .catch(error => {
+                    alert("ERROR Servidor");
+                });
                 
         }
 

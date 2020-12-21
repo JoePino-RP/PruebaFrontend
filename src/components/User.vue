@@ -82,8 +82,8 @@
             this.$router.push({name: "index"})
                 
         },
-        Docs(){            
-            console.log(this.username)
+        Docs: function(){            
+            //console.log(this.username)
             this.$router.push({name:"documents", params:{username:this.username,
                                                             apellido:this.apellido,
                                                             correo:this.correo,
