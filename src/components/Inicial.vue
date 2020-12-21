@@ -12,10 +12,10 @@
                <div class="Title2"><h1>Bienvenido</h1></div>         
               <div class="contenedor">
                 <div >
-                  <button class="invert" type="button" id="signIn" v-on:click="SignUser">Consultar</button>
+                  <button class="invert2" type="button" id="signIn" v-on:click="SignUser">Consultar</button>
                 </div>
                 <div >
-                  <button class="invert" type="button" id="signIn" v-on:click="RegisterUser">Registrar</button></div>
+                  <button class="invert2" type="button" id="signIn" v-on:click="RegisterUser">Registrar</button></div>
               </div>
             </div>
           </div>
@@ -82,7 +82,7 @@
   text-align: center;
   }
 
-  button.invert {
+  button.invert2 {
         border-radius: 20px;
         border: 1px solid #082e55;
         background-color: #082e55;

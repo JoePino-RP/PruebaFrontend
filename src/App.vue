@@ -8,11 +8,12 @@
       <div class="OCR">
         <img src="./assets/Banner1.png" alt="1">
       </div>
-
     </div>
+    
 
     <!--Cuerpo-->
     <div class="main-component">
+      <Inicial></Inicial>
       <router-view> </router-view>
     </div>
 
@@ -23,9 +24,10 @@
 </template>
 
 <script>
+import Inicial from './components/Inicial.vue'
 export default {
   name: 'App',
-  components: {},
+  components: {Inicial},
   data: function (){
     
   }
