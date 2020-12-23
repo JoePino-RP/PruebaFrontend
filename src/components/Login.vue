@@ -55,7 +55,7 @@ export default {
             var username = document.getElementById("fuser").value;
             var password = document.getElementById("fpass").value;
             
-            axios.get("http://localhost:8000/user/leerUsuario/"+username)
+            axios.get("https://expfles-sprint4.herokuapp.com/user/leerUsuario/"+username)
                 .then(response=> {
                     if(response.data.password == password ){
                         this.$router.push({name:"user", params:{username:username,

@@ -53,7 +53,7 @@ export default {
                 conf_new_pass: document.getElementById("fcnpass1").value,
             };
             console.log(cambiosjson)
-            axios.put("http://localhost:8000/user/updateUser/",cambiosjson)
+            axios.put("https://expfles-sprint4.herokuapp.com/user/updateUser/",cambiosjson)
                 .then(response=> {
                     /*if(response.data.password == old_password && response.data.username == this.username){
                         /*this.$router.push({name:"user", params:{username:username,
