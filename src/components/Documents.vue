@@ -24,7 +24,12 @@
                     <th>ARCHIVO</th>
                 </tr>
                 <tbody id="Mis_Docs">
-                    
+                    <tr v-for="na in archivos" >
+                        <td>{{ na.file_name }}</td>
+                        <td>{{ na.data_upload}}</td>
+                        <td>{{ na.date_expired}}</td>
+                        <td>{{ na.file_uploaded}}</td>
+                    </tr>
                 </tbody>
                 
             </table>
@@ -47,7 +52,12 @@ import axios from "axios";
                 correo: "",
                 rol:"",
                 celular:"",
-                nombre:""
+                nombre:"",
+                archivos: []
+                /*a1:"",
+                a2:"",
+                a3:"",
+                a4:""*/
             }
         },
         created:function(){
@@ -61,7 +71,7 @@ import axios from "axios";
         },
         methods: {
         Prueba: function(){
-            axios.get("http://localhost:8000/user/leerUsuario/"+this.username)
+            axios.get("https://expfles-sprint4.herokuapp.com/user/leerUsuario/"+this.username)
                 .then(response=> {
                     this.$router.push({name:"user", params:{username:this.username,
                                                             apellido:response.data.apellido,
@@ -94,14 +104,23 @@ import axios from "axios";
 
             
             /*var password = document.getElementById("fpassword").value;*/
-            axios.put("http://localhost:8000/user/Buscar",jsonfile)
+            axios.put("https://expfles-sprint4.herokuapp.com/user/Buscar",jsonfile)
                 .then(response=>{
                     console.log(response.data);
-                    var Archivos = response.data
+                    this.archivos = response.data;
+                    /*this.a1=(response.data[0].file_name)
+                    this.a2=(response.data[0].data_upload)
+                    this.a3=(response.data[0].date_expired)
+                    this.a4=(response.data[0].file_uploaded)*/
+
+
+                    
                 })
                 .catch(error => {
                     alert("ERROR Servidor");
-                });                 
+                    console.log(error.data)
+                });
+            //console.log(Archivos)            
         }
     }    
     }

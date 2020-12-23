@@ -74,7 +74,7 @@ export default {
                 rol: document.getElementById("frol").value
             };
             console.log(datosJson)
-            axios.put("http://localhost:8000//user/updateUser/",datosJson)
+            axios.post("https://expfles-sprint4.herokuapp.com/user/createUser/",datosJson)
                 .then(response=> {
                     alert("Creado con exito");
                 })

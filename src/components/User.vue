@@ -64,7 +64,7 @@
         },
         methods: {
         Prueba: function(){
-            axios.get("http://localhost:8000/user/leerUsuario/"+username)
+            axios.get("https://expfles-sprint4.herokuapp.com/user/leerUsuario/"+username)
                 .then(response=> {
                     this.$router.push({name:"user", params:{username:username,
                                                             apellido:response.data.apellido,
